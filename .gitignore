@@ -76,3 +76,4 @@ model_weights.npy
 # Hugging Face specific
 .huggingface/
 .hf_cache/
+.qodo
