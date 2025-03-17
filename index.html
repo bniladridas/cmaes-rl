@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMA-ES Agent | Minimal Overview</title>
+    <style>
+        :root {
+            --bg: #fff;
+            --text: #222;
+            --border: #eee;
+            --link: #222;
+        }
+        body.dark {
+            --bg: #181a1b;
+            --text: #f3f3f3;
+            --border: #333;
+            --link: #8ab4f8;
+        }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            font-size: 18px;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            transition: background 0.2s, color 0.2s;
+        }
+        header {
+            background: var(--bg);
+            color: var(--text);
+            text-align: left;
+            padding: 2rem 0 1rem 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+        .logo {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            margin-left: 1rem;
+        }
+        h1 {
+            font-weight: 600;
+            margin: 0;
+            font-size: 2rem;
+            color: var(--text);
+        }
+        .mode-toggle {
+            margin-left: auto;
+            margin-right: 1rem;
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-size: 1rem;
+            padding: 0.4rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s, border 0.2s;
+        }
+        .mode-toggle:hover {
+            background: var(--border);
+        }
+        main {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        section {
+            margin-bottom: 2.5rem;
+            padding: 0;
+            background: none;
+            border-radius: 0;
+            box-shadow: none;
+        }
+        ul, ol {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+        }
+        a {
+            color: var(--link);
+        }
+        footer {
+            border-top: 1px solid var(--border);
+            font-size: 0.95rem;
+            padding: 1rem 0;
+            margin-top: 2rem;
+            background: var(--bg);
+            color: var(--text);
+        }
+        @media (max-width: 700px) {
+            header { flex-direction: column; align-items: flex-start; padding: 1.5rem 0 1rem 0; }
+            .logo { margin-left: 0; margin-bottom: 0.5rem; }
+            main { padding: 1rem; }
+            .mode-toggle { margin: 1rem 0 0 0; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img class="logo" src="https://media.licdn.com/dms/image/v2/D4D0BAQHP1InHqA6i1g/company-logo_200_200/B4DZdJMr0uHMAI-/0/1749279752015/mix03_logo?e=1756339200&v=beta&t=hLgoElSNnQU83XA2jxn-HWrUtcAOuH2ylcfsAOsOMwI" alt="Logo">
+        <h1 style="margin-right:1rem;">CMA-ES Agent: CartPole-v1</h1>
+        <a href="https://huggingface.co/bniladridas/cartpole-cmaes" target="_blank" style="font-size:1rem;color:var(--link);text-decoration:underline;">Hugging Face</a>
+        <button class="mode-toggle" onclick="document.body.classList.toggle('dark'); localStorage.setItem('mode', document.body.classList.contains('dark') ? 'dark' : 'light');">
+            <span id="mode-label">Dark Mode</span>
+        </button>
+    </header>
+    <main>
+        <section id="abstract">
+            <h2>Abstract</h2>
+            <p>This project demonstrates the use of Covariance Matrix Adaptation Evolution Strategy (CMA-ES) for reinforcement learning in the CartPole-v1 environment. The agent optimizes a linear policy using evolutionary methods, requiring no gradients or neural networks.</p>
+        </section>
+        <section id="technical">
+            <h2>Technical</h2>
+            <ul>
+                <li>Environment: CartPole-v1 (Gymnasium)</li>
+                <li>Policy: Linear mapping from state to action</li>
+                <li>Algorithm: CMA-ES (evolutionary strategy)</li>
+                <li>Population: 16</li>
+                <li>Generations: 100</li>
+            </ul>
+        </section>
+        <section id="results">
+            <h2>Results</h2>
+            <ul>
+                <li>Mean Reward: 500.0 (optimal)</li>
+                <li>Evaluation Episodes: 10</li>
+                <li>Convergence: Within 5 generations</li>
+            </ul>
+        </section>
+        <section id="references">
+            <h2>References</h2>
+            <ul>
+                <li>Hansen, N., & Ostermeier, A. (2001). Evolutionary Computation, 9(2), 159-195.</li>
+                <li>Salimans, T. et al. (2017). arXiv:1703.03864.</li>
+                <li>Brockman, G. et al. (2016). arXiv:1606.01540.</li>
+                <li>Sutton, R. S., & Barto, A. G. (2018). Reinforcement learning: An introduction. MIT press.</li>
+            </ul>
+        </section>
+    </main>
+    <div style="display:flex;justify-content:center;margin-bottom:2rem;">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7340668477055066112?compact=1" height="399" width="504" frameborder="0" allowfullscreen title="Embedded post"></iframe>
+    </div>
+    <footer>
+        CMA-ES RL &mdash; <a href="https://github.com/bniladridas/cmaes-rl" style="color:var(--link);text-decoration:underline;">GitHub</a> |
+        <a href="https://huggingface.co/mix03" target="_blank" style="color:var(--link);text-decoration:underline;">Hugging Face</a><br>
+        &copy; 2025 <a href="https://www.linkedin.com/company/mix03/" target="_blank" style="color:var(--link);text-decoration:underline;">mix03</a>. All rights reserved.
+    </footer>
+    <script>
+        // Set mode on load
+        (function() {
+            var mode = localStorage.getItem('mode');
+            if (mode === 'dark') {
+                document.body.classList.add('dark');
+                document.getElementById('mode-label').textContent = 'Light Mode';
+            } else {
+                document.body.classList.remove('dark');
+                document.getElementById('mode-label').textContent = 'Dark Mode';
+            }
+        })();
+        // Toggle label
+        document.querySelector('.mode-toggle').addEventListener('click', function() {
+            var isDark = document.body.classList.contains('dark');
+            document.getElementById('mode-label').textContent = isDark ? 'Light Mode' : 'Dark Mode';
+        });
+    </script>
+</body>
+</html>
