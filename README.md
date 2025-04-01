@@ -78,7 +78,7 @@ The agent was trained using the CMA-ES algorithm with the following specificatio
 @misc{cartpole-cmaes,
   author = {Niladri Das},
   title = {CartPole CMA-ES Agent},
-  year = {2024},
+  year = {2025},
   publisher = {Hugging Face},
   journal = {Hugging Face Hub},
   howpublished = {\url{https://huggingface.co/bniladridas/cartpole-cmaes}}
